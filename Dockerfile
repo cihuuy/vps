@@ -29,6 +29,7 @@ CMD ["/opt/bin/entry_point.sh"]
 # Utilities
 #============================
 FROM ubuntu-base as ubuntu-utilities
+RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
         wget \
         bash \
