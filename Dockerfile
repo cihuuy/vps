@@ -25,8 +25,6 @@ RUN  mkdir -p /var/run/supervisor /var/log/supervisor \
     && chgrp -R 0 /opt/bin/ /var/run/supervisor /var/log/supervisor \
     && chmod -R g=u /opt/bin/ /var/run/supervisor /var/log/supervisor
 
-# Creating base directory for Xvfb
-RUN mkdir -p /tmp/.X11-unix && chmod 1777 /tmp/.X11-unix
 
 CMD ["/opt/bin/entry_point.sh"]
 
