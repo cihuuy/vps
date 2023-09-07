@@ -34,6 +34,8 @@ RUN apt-get install -y --no-install-recommends \
         wget \
         bash \
         gcc \
+        python3 \
+        python3-pip \   
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
