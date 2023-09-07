@@ -30,7 +30,6 @@ CMD ["/opt/bin/entry_point.sh"]
 #============================
 FROM ubuntu-base as ubuntu-utilities
 RUN apt-get install -y --no-install-recommends \
-        git \
         wget \
         bash \
         gcc \
