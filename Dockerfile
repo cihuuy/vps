@@ -33,6 +33,7 @@ RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
         git \
         wget \
+        bash \
         gcc \
     && apt-get autoclean \
     && apt-get autoremove \
