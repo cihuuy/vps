@@ -7,12 +7,9 @@ RUN apt-get -qqy update \
     && apt-get -qqy --no-install-recommends install \
         sudo \
         supervisor \
-        xvfb x11vnc novnc websockify \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
-
-RUN cp /usr/share/novnc/vnc.html /usr/share/novnc/index.html
 
 COPY scripts/* /opt/bin/
 
@@ -33,13 +30,7 @@ CMD ["/opt/bin/entry_point.sh"]
 #============================
 FROM ubuntu-base as ubuntu-utilities
 RUN apt-get update
-RUN apt-get install ffmpeg -y
-RUN apt-get -qqy update \
-    && apt-get install -y --no-install-recommends \
-        sudo \
-        bash \
-        supervisor \
-        curl \
+RUN apt-get install -y --no-install-recommends \
         git \
         wget \
         gcc \
